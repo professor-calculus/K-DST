@@ -9,6 +9,6 @@ VERY simple app, this plays the songs in a random shuffled order. Inbetween song
 Adverts, DJ chat and soundbites randomised. Also many songs have different intros/outros, each with different DJ chat overlays. Where applicable these are also randomised.
 
 # Controls:
-Play/pause: self-explanatory!
-Reset: Re-shuffles the play order.
-Skip: Also self explanatory, kinda. This skips the current file, so skipping the song intro takes you to the main body of the song etc. Skips adverts one at a time.
+* Play/pause: self-explanatory!
+* Reset: Re-shuffles the play order.
+* Skip: Also self explanatory, kinda. This skips the current file, so skipping the song intro takes you to the main body of the song etc. Skips adverts one at a time.
