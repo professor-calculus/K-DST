@@ -10,6 +10,8 @@ Adverts, DJ chat and soundbites randomised. Also many songs have different intro
 
 Screen will not go off when this app is open, mainly so it can be used in the car etc without having to keep unlocking screen. Portrait and landscape modes supported, works on iPhone/iPad (only iPhone X and 9.7" iPad Pro tested though). If you connect this to a bluetooth car radio "K-DST" will appear on the screen, as if you're in the game itself!
 
+NEW: If you open the app by navigating to "KDST://" in iPhone/iPad browser the radio automatically plays. This way it's simple to create a Siri shortcut to play K-DST radio without me requiring a paid developer license in order to add Siri functionality directly.
+
 # Controls:
 * Play/pause: self-explanatory!
 * Reset: Re-shuffles the play order.
