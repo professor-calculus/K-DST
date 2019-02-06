@@ -13,9 +13,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    var autoPlay: Bool = false
+    
+    // Opens normally, i.e. when tapping on the app from home screen
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         // Override point for customization after application launch.
+        print("Launched")
+        application.isIdleTimerDisabled = true
+        return true
+    }
+
+    // Automatically play audio if opened via URL "KDST://" (for Siri shortcut)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        // Override point for customization after application launch.
+        application.isIdleTimerDisabled = true
+        
+        autoPlay = true
+        
         return true
     }
 

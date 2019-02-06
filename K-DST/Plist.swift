@@ -216,7 +216,7 @@ func Playlist() -> AVQueuePlayer {
         var index6 = index5
         var index7 = index6
         var index8 = index7
-        print(index5)
+        //print(index5)
         while index5 == index4 {
             index5 = Int(arc4random_uniform(UInt32(adverts.count)))
             print(index5)
@@ -231,7 +231,7 @@ func Playlist() -> AVQueuePlayer {
             index8 = Int(arc4random_uniform(UInt32(adverts.count)))
         }
         let nadverts = Int(arc4random_uniform(5))
-        print(nadverts)
+        //print(nadverts)
         let introindex = Int(arc4random_uniform(2))
         let outroindex = Int(arc4random_uniform(2))
         let temp_song = songs[index]
@@ -243,7 +243,7 @@ func Playlist() -> AVQueuePlayer {
         temp_ad.append("icons/" + adverts[index6])
         temp_ad.append("icons/" + adverts[index7])
         temp_ad.append("icons/" + adverts[index8])
-        print(temp_ad)
+        //print(temp_ad)
         var indices = [Int]()
         indices.append(index4)
         indices.append(index5)
@@ -256,9 +256,9 @@ func Playlist() -> AVQueuePlayer {
         let temp_sb = "icons/" + temp_soundbite
         let temp_dj = "icons/" + temp_tommy
         
-        print(temp_intro)
-        print(temp_body)
-        print(temp_outro)
+        //print(temp_intro)
+        //print(temp_body)
+        //print(temp_outro)
         
         playlist.insert(AVPlayerItem(url: URL.init(fileURLWithPath: Bundle.main.path(forResource: temp_sb, ofType: "m4a")!)), after: nil)
         playlist.insert(AVPlayerItem(url: URL.init(fileURLWithPath: Bundle.main.path(forResource: temp_dj, ofType: "m4a")!)), after: nil)

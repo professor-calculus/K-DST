@@ -19,12 +19,22 @@ class ViewController: UIViewController {
     
     var hasBeenPaused = true
     
+    @objc func autoPlayRadio() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        if appDelegate.autoPlay == true
+        {
+            // Same as pressing reshuffle button
+            audioQueue.pause()
+            audioQueue = Playlist()
+            setOnPlay()
+            hasBeenPaused = false
+        }
+    }
+    
     func prepareSongAndSession() {
         do {
-            //songPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "K-DST", ofType: "mp3")!))
-            //songPlayer.prepareToPlay()
-            
-            var audioQueue = Playlist()
+            _ = Playlist()
             
             let audioSession = AVAudioSession.sharedInstance()
             do {
@@ -35,17 +45,30 @@ class ViewController: UIViewController {
             } catch let sessionError {
                 print(sessionError)
             }
-        } catch let audioQueueError {
-            print(audioQueueError)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        print("loading stuff")
+
         // Do any additional setup after loading the view, typically from a nib.
-        prepareSongAndSession()
+        prepareSongAndSession() // Gets playlist ready
+        
+        // Checks if autoPlay bool has been triggered each time app enters foreground
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(ViewController.autoPlayRadio),
+            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            object: nil)
+    }
+    
+    // Deinitialise the observer
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            object: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -54,7 +77,6 @@ class ViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBOutlet weak var toolBar: UIToolbar!
@@ -68,6 +90,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Play and change play/pause button to pause
     func setOnPlay() {
         var items = self.toolBar.items
         audioQueue.play()
@@ -77,6 +100,7 @@ class ViewController: UIViewController {
         self.toolBar.setItems(items, animated: true)
     }
 
+    // Pause and change play/pause button to play
     func setOnPause() {
         var items = self.toolBar.items
         audioQueue.pause()
@@ -86,6 +110,7 @@ class ViewController: UIViewController {
         self.toolBar.setItems(items, animated: true)
     }
     
+    // Pause, reshuffle playlist and play again
     @IBAction func restart(_ sender: Any) {
         audioQueue.pause()
         audioQueue = Playlist()
@@ -93,11 +118,13 @@ class ViewController: UIViewController {
         hasBeenPaused = false
     }
     
+    // Skip file, NOT song -- could work on this in future
     @IBAction func skip(_ sender: Any) {
         audioQueue.advanceToNextItem()
     }
     
     
+    // So we can use media buttons on lock screen, command centre, headphones, Apple Watch etc.
     private func setupCommandCenter() {
         let image = UIImage(named: "icons/Icon-180.png")!
         let artwork = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in

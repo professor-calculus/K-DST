@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="landscape">
-        <adaptation id="fullscreen"/>
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="splitview2_3"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,14 +17,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="K_DST" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bkg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fKY-zu-raJ">
-                                <rect key="frame" x="0.0" y="-14" width="812" height="389"/>
+                                <rect key="frame" x="0.0" y="6" width="694" height="762"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-6p-9Cc">
-                                <rect key="frame" x="0.0" y="310" width="812" height="44"/>
+                                <rect key="frame" x="0.0" y="724" width="694" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="RyJ-m6-v1W"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 </connections>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="K-DST_Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="6LO-4h-hIQ">
-                                <rect key="frame" x="226.66666666666663" y="2.3333333333333428" width="360" height="330.66666666666663"/>
+                                <rect key="frame" x="167.5" y="199" width="360" height="330"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="330" id="0Lx-Lz-FP2"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="GEx-sE-xPK"/>
