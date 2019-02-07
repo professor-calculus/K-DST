@@ -9,8 +9,9 @@
 import Foundation
 import AVFoundation
 
-func Playlist() -> AVQueuePlayer {
+func KDST() -> AVQueuePlayer {
     let playlist = AVQueuePlayer()
+    playlist.allowsExternalPlayback = false
     class Song {
         var title: String = ""
         var intro = [String]()
@@ -238,11 +239,11 @@ func Playlist() -> AVQueuePlayer {
         let temp_soundbite = soundbites[index2]
         let temp_tommy = tommy[index3]
         var temp_ad = [String]()
-        temp_ad.append("icons/" + adverts[index4])
-        temp_ad.append("icons/" + adverts[index5])
-        temp_ad.append("icons/" + adverts[index6])
-        temp_ad.append("icons/" + adverts[index7])
-        temp_ad.append("icons/" + adverts[index8])
+        temp_ad.append("audio/KDST/" + adverts[index4])
+        temp_ad.append("audio/KDST/" + adverts[index5])
+        temp_ad.append("audio/KDST/" + adverts[index6])
+        temp_ad.append("audio/KDST/" + adverts[index7])
+        temp_ad.append("audio/KDST/" + adverts[index8])
         //print(temp_ad)
         var indices = [Int]()
         indices.append(index4)
@@ -250,11 +251,11 @@ func Playlist() -> AVQueuePlayer {
         indices.append(index6)
         indices.append(index7)
         indices.append(index8)
-        let temp_intro = "icons/" + temp_song.intro[introindex]
-        let temp_body = "icons/" + temp_song.body
-        let temp_outro = "icons/" + temp_song.outro[outroindex]
-        let temp_sb = "icons/" + temp_soundbite
-        let temp_dj = "icons/" + temp_tommy
+        let temp_intro = "audio/KDST/" + temp_song.intro[introindex]
+        let temp_body = "audio/KDST/" + temp_song.body
+        let temp_outro = "audio/KDST/" + temp_song.outro[outroindex]
+        let temp_sb = "audio/KDST/" + temp_soundbite
+        let temp_dj = "audio/KDST/" + temp_tommy
         
         //print(temp_intro)
         //print(temp_body)

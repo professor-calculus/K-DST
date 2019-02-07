@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
-        <adaptation id="splitview2_3"/>
+        <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,14 +15,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="K_DST" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bkg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fKY-zu-raJ">
-                                <rect key="frame" x="0.0" y="6" width="694" height="762"/>
+                                <rect key="frame" x="0.0" y="6" width="1024" height="762"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-6p-9Cc">
-                                <rect key="frame" x="0.0" y="724" width="694" height="44"/>
+                                <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="RyJ-m6-v1W"/>
                                 </constraints>
@@ -55,43 +53,40 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uK4-Hd-WYh"/>
                                 </connections>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="K-DST_Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="6LO-4h-hIQ">
-                                <rect key="frame" x="167.5" y="199" width="360" height="330"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="330" id="0Lx-Lz-FP2"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="GEx-sE-xPK"/>
-                                    <constraint firstAttribute="width" secondItem="6LO-4h-hIQ" secondAttribute="height" multiplier="12:11" id="Sp8-f4-Jrw"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="330" id="q0j-O5-8NR"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="360" id="sth-It-kuq"/>
-                                    <constraint firstAttribute="width" constant="360" id="xr5-0V-jA0"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="20" verticalHuggingPriority="20" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwL-de-UNi">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="694"/>
+                                <viewLayoutGuide key="safeArea" id="7e7-ql-iVo"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fKY-zu-raJ" firstAttribute="leading" secondItem="Z0t-6p-9Cc" secondAttribute="leading" id="4VL-M5-9G8"/>
+                            <constraint firstItem="uwL-de-UNi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6uW-Na-i2L"/>
                             <constraint firstItem="fKY-zu-raJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7VB-Fr-2gO"/>
+                            <constraint firstItem="Z0t-6p-9Cc" firstAttribute="top" secondItem="uwL-de-UNi" secondAttribute="bottom" constant="10" id="BBi-tP-Ee4"/>
                             <constraint firstItem="Z0t-6p-9Cc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="DOe-B2-kRn"/>
-                            <constraint firstItem="6LO-4h-hIQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="cWT-TI-hGn"/>
+                            <constraint firstItem="uwL-de-UNi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fdg-ww-70O"/>
+                            <constraint firstItem="uwL-de-UNi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f3g-6P-we9"/>
+                            <constraint firstItem="uwL-de-UNi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fnT-md-nOR"/>
                             <constraint firstAttribute="bottom" secondItem="fKY-zu-raJ" secondAttribute="bottom" id="gn4-nd-kOA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uwL-de-UNi" secondAttribute="trailing" id="kM1-fr-99P"/>
                             <constraint firstItem="fKY-zu-raJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-14" id="lMl-75-4mm"/>
                             <constraint firstItem="Z0t-6p-9Cc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="o9K-RR-JRu"/>
                             <constraint firstAttribute="trailing" secondItem="fKY-zu-raJ" secondAttribute="trailing" id="qpA-mK-FuR"/>
-                            <constraint firstItem="6LO-4h-hIQ" firstAttribute="centerX" secondItem="fKY-zu-raJ" secondAttribute="centerX" id="u0h-1N-rrh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="swipeImageView" destination="uwL-de-UNi" id="KXp-XH-6u9"/>
                         <outlet property="toolBar" destination="Z0t-6p-9Cc" id="SA4-9J-ylu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.512315270935964" y="32.799999999999997"/>
+            <point key="canvasLocation" x="31.25" y="31.640624999999996"/>
         </scene>
     </scenes>
     <resources>
-        <image name="K-DST_Icon.png" width="480" height="480"/>
         <image name="bkg.jpg" width="750" height="1334"/>
     </resources>
 </document>

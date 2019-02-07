@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var autoPlay: Bool = false
+    var autoPlay: Int = -1
     
     // Opens normally, i.e. when tapping on the app from home screen
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
@@ -28,7 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         application.isIdleTimerDisabled = true
         
-        autoPlay = true
+        if url.query == "KDST" {autoPlay = 0}
+        else if url.query == "LSRR" {autoPlay = 1}
+        else if url.query == "BCTR" {autoPlay = 2}
+        else {autoPlay = -1}
         
         return true
     }
