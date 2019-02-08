@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         print("Launched")
+        autoPlay = -1
         application.isIdleTimerDisabled = true
         return true
     }
@@ -28,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         application.isIdleTimerDisabled = true
         
+        autoPlay = -1
+        print("Called via URL")
         if url.query == "KDST" {autoPlay = 0}
         else if url.query == "LSRR" {autoPlay = 1}
         else if url.query == "BCTR" {autoPlay = 2}
@@ -44,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        autoPlay = -1
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
