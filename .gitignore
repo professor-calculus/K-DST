@@ -1,2 +1,10 @@
-RadioKit/audio/*/*.mp3
-RadioKit/audio/*/*.m4a
+RadioKit/audio/News/*.mp3
+RadioKit/audio/News/*.m4a
+RadioKit/audio/K-DST/*.mp3
+RadioKit/audio/K-DST/*.m4a
+RadioKit/audio/LSRR/*.mp3
+RadioKit/audio/LSRR/*.m4a
+RadioKit/audio/BCTR/*.mp3
+RadioKit/audio/BCTR/*.m4a
+RadioKit/audio/Ads/*.mp3
+RadioKit/audio/Ads/*.m4a
