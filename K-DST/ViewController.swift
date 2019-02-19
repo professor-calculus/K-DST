@@ -10,18 +10,16 @@ import UIKit
 import AVFoundation
 import AVKit
 import MediaPlayer
+import Intents
+import CoreSpotlight
+import CoreServices
+import RadioKit
 
 class ViewController: UIViewController {
     
     // Swipe image container
     @IBOutlet weak var swipeImageView: UIImageView!
     // Type in the names of your images below
-    let imageNames = ["icons/Icon-256","icons/LSRR","icons/BCTR"]
-    let CC_images = ["icons/KDST_CC.jpg", "icons/LSRR_CC.jpg", "icons/BCTR_CC"]
-    let stationNames = ["K-DST", "Los Santos Rock Radio", "Blaine County FM"]
-    var currentImage = 0
-    
-    var backgroundContinue: Bool = false
     
     func registerSettingsBundle(){
         let appDefaults = [String:AnyObject]()
@@ -30,51 +28,10 @@ class ViewController: UIViewController {
     
     @objc func defaultsChanged(){
         if UserDefaults.standard.bool(forKey: "backgroundContinue") {
-            self.backgroundContinue = true
+            RadioPlaybackManager.shared.backgroundContinue = true
         }
         else {
-            self.backgroundContinue = false
-        }
-    }
-    
-    //var audioQueue = LSRR()
-    var audioQueues = [KDST(), LSRR(), BCTR()]
-    var hasBeenPaused = true
-    
-    @objc func autoPlayRadio() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        if appDelegate.autoPlay != -1
-        {
-            // Same as pressing reshuffle button
-            audioQueues[currentImage].isMuted = true
-            currentImage = appDelegate.autoPlay
-            swipeImageView.image = UIImage(named: imageNames[currentImage])
-            //if currentImage == 0 {audioQueues[currentImage] = KDST()}
-            //else if currentImage == 1 {audioQueues[currentImage] = LSRR()}
-            //else {audioQueues[currentImage] = BCTR()}
-            setOnPlay()
-            swipeImageView.image = UIImage(named: imageNames[currentImage])
-            let image = UIImage(named: CC_images[currentImage])!
-            let artwork = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
-                return image
-            })
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationNames[currentImage], MPMediaItemPropertyArtist: stationNames[currentImage], MPMediaItemPropertyArtwork: artwork]
-            hasBeenPaused = false
-        }
-    }
-    
-    func prepareSongAndSession() {
-        do {
-            let audioSession = AVAudioSession.sharedInstance()
-            do {
-                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
-                try audioSession.setActive(true)
-                UIApplication.shared.beginReceivingRemoteControlEvents()
-                setupCommandCenter()
-            } catch let sessionError {
-                print(sessionError)
-            }
+            RadioPlaybackManager.shared.backgroundContinue = false
         }
     }
     
@@ -82,100 +39,72 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         
+        INPreferences.requestSiriAuthorization { (status) in
+            if status == .authorized {
+                print("Siri access allowed")
+            } else {
+                print("Siri access denied")
+            }
+        }
+        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(gesture:)))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
         self.view.addGestureRecognizer(swipeRight)
-        swipeImageView.image = UIImage(named: imageNames[0])
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(gesture:)))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        swipeImageView.image = RadioPlaybackManager.shared.currentImage()
 
         // Do any additional setup after loading the view, typically from a nib.
-        prepareSongAndSession() // Gets playlist ready
         
         registerSettingsBundle()
         
-        // Checks if autoPlay bool has been triggered each time app enters foreground
+        defaultsChanged()
+        
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        // Updates key vars when app enters foreground
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(ViewController.autoPlayRadio),
+            selector: #selector(self.updatePlayButton),
+            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.updateImage),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
         
-        defaultsChanged()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        
+        donateKDST()
+        donateLSRR()
+        donateBCTR()
+        
     }
     
-    func changeStation(oldStation: Int, newStation: Int) {
-        if hasBeenPaused == false
-        {
-            audioQueues[oldStation].isMuted = true
-            audioQueues[newStation].isMuted = false
-            audioQueues[newStation].play()
-            if backgroundContinue == false {audioQueues[oldStation].pause()}
-        }
-        // setupCommandCenter()
-        swipeImageView.image = UIImage(named: imageNames[currentImage])
-        let image = UIImage(named: CC_images[currentImage])!
-        let artwork = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
-            return image
-        })
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationNames[currentImage], MPMediaItemPropertyArtist: stationNames[currentImage], MPMediaItemPropertyArtwork: artwork]
+    @objc func updateImage() {
+        swipeImageView.image = RadioPlaybackManager.shared.currentImage()
     }
     
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
-            let oldImage = currentImage
-            
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.left:
-                if currentImage == imageNames.count - 1 {
-                    currentImage = 0
-                    
-                }else{
-                    currentImage += 1
-                }
-                swipeImageView.image = UIImage(named: imageNames[currentImage])
-                
-            case UISwipeGestureRecognizerDirection.right:
-                if currentImage == 0 {
-                    currentImage = imageNames.count - 1
-                }else{
-                    currentImage -= 1
-                }
-                swipeImageView.image = UIImage(named: imageNames[currentImage])
+            case UISwipeGestureRecognizer.Direction.left:
+                RadioPlaybackManager.shared.nextStation()
+
+            case UISwipeGestureRecognizer.Direction.right:
+                RadioPlaybackManager.shared.prevStation()
+
             default:
                 break
             }
-            changeStation(oldStation: oldImage, newStation: currentImage)
+            swipeImageView.image = RadioPlaybackManager.shared.currentImage()
         }
-    }
-    
-    func swipeLeft() {
-        print("swipeLeft called")
-        audioQueues[currentImage].isMuted = true
-        if backgroundContinue == false {audioQueues[currentImage].pause()}
-        if currentImage == imageNames.count - 1 {
-            currentImage = 0
-        }
-        else{
-            currentImage += 1
-        }
-        swipeImageView.image = UIImage(named: imageNames[currentImage])
-        let image = UIImage(named: CC_images[currentImage])!
-        let artwork = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
-            return image
-        })
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationNames[currentImage], MPMediaItemPropertyArtist: stationNames[currentImage], MPMediaItemPropertyArtwork: artwork]
-        
-        audioQueues[currentImage].isMuted = false
-        setOnPlay()
-        //if hasBeenPaused == false {audioQueues[currentImage].play()}
-        //changeStation(oldStation: oldImage, newStation: currentImage)
     }
     
     // Deinitialise the observer
@@ -197,93 +126,88 @@ class ViewController: UIViewController {
     @IBOutlet weak var toolBar: UIToolbar!
     
     @IBAction func playButtonTapped(_ sender: Any) {
-        if hasBeenPaused {
-            setOnPlay()
+        
+        if RadioPlaybackManager.shared.hasBeenPaused {
+            RadioPlaybackManager.shared.setOnPlay()
         }
         else {
-            setOnPause()
+            RadioPlaybackManager.shared.setOnPause()
         }
-    }
-    
-    // Play and change play/pause button to pause
-    func setOnPlay() {
-        var items = self.toolBar.items
-        for i in 0..<imageNames.count
-        {
-            if backgroundContinue || i == currentImage {audioQueues[i].play()}
-            else {audioQueues[i].pause()}
-            if i == currentImage {audioQueues[i].isMuted = false}
-            else {audioQueues[i].isMuted = true}
-        }
-        hasBeenPaused = false
-        items![0] = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pause, target: self, action: #selector(ViewController.playButtonTapped(_:)))
-        items![0].tintColor = UIColor.white
-        self.toolBar.setItems(items, animated: true)
-    }
-    
-    
-    // Pause and change play/pause button to play
-    func setOnPause() {
-        var items = self.toolBar.items
-        for i in 0..<imageNames.count
-        {
-            audioQueues[i].pause()
-        }
-        hasBeenPaused = true
-        items![0] = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.play, target: self, action: #selector(ViewController.playButtonTapped(_:)))
-        items![0].tintColor = UIColor.white
-        self.toolBar.setItems(items, animated: true)
+        
+        updatePlayButton()
     }
     
     // Pause, reshuffle playlist and play again
     @IBAction func restart(_ sender: Any) {
-        audioQueues[currentImage].pause()
-        if currentImage == 0 {audioQueues[currentImage] = KDST()}
-        else if currentImage == 1 {audioQueues[currentImage] = LSRR()}
-        else {audioQueues[currentImage] = BCTR()}
-        setOnPlay()
-        hasBeenPaused = false
+        RadioPlaybackManager.shared.restart()
     }
     
     // Skip file, NOT song -- could work on this in future
     @IBAction func skip(_ sender: Any) {
-        audioQueues[currentImage].advanceToNextItem()
+        RadioPlaybackManager.shared.skip()
     }
     
+    @objc func updatePlayButton() {
+        var items = self.toolBar.items
+        if RadioPlaybackManager.shared.hasBeenPaused == true
+        {
+            items![0] = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.play, target: self, action: #selector(ViewController.playButtonTapped(_:)))
+        }
+        else
+        {
+            items![0] = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.pause, target: self, action: #selector(ViewController.playButtonTapped(_:)))
+        }
+        
+        items![0].tintColor = UIColor.white
+        self.toolBar.setItems(items, animated: true)
+    }
     
-    // So we can use media buttons on lock screen, command centre, headphones, Apple Watch etc.
-    private func setupCommandCenter() {
-        let image = UIImage(named: CC_images[currentImage])!
-        let artwork = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
-            return image
-        })
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationNames[currentImage], MPMediaItemPropertyArtist: stationNames[currentImage], MPMediaItemPropertyArtwork: artwork]
+    func donateKDST() {
+        let image = INImage(named: "icons/KDST_CC.png")
+        let item = INMediaItem(identifier: "K-DST", title: "K-DST", type: .musicStation, artwork: image)
         
-        audioQueues[currentImage].allowsExternalPlayback = false
+        let intent = INPlayMediaIntent(mediaItems: [item])
+        intent.suggestedInvocationPhrase = "Play The Dust"
         
-        let commandCenter = MPRemoteCommandCenter.shared()
-        commandCenter.playCommand.isEnabled = true
-        commandCenter.pauseCommand.isEnabled = true
-        commandCenter.previousTrackCommand.isEnabled = true
-        commandCenter.nextTrackCommand.isEnabled = true
-        commandCenter.playCommand.addTarget { [weak self] (event) -> MPRemoteCommandHandlerStatus in
-            self?.setOnPlay()
-            return .success
-        }
-        commandCenter.pauseCommand.addTarget { [weak self] (event) -> MPRemoteCommandHandlerStatus in
-            self?.setOnPause()
-            return .success
-        }
-        commandCenter.previousTrackCommand.addTarget { [weak self] (event) -> MPRemoteCommandHandlerStatus in
-            self?.restart(UIButton())
-            return .success
-        }
-        commandCenter.nextTrackCommand.addTarget { [weak self] (event) -> MPRemoteCommandHandlerStatus in
-            // self?.skip(UIButton())
-            
-            self?.swipeLeft()
-            
-            return .success
+        let interaction = INInteraction(intent: intent, response: nil)
+        
+        interaction.donate { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
         }
     }
+    
+    func donateLSRR() {
+        let image = INImage(named: "icons/LSRR_CC.png")
+        let item = INMediaItem(identifier: "LSRR", title: "LSRR", type: .musicStation, artwork: image)
+        
+        let intent = INPlayMediaIntent(mediaItems: [item])
+        intent.suggestedInvocationPhrase = "Play Los Santos Rock Radio"
+        
+        let interaction = INInteraction(intent: intent, response: nil)
+        
+        interaction.donate { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func donateBCTR() {
+        let image = INImage(named: "icons/BCTR_CC.png")
+        let item = INMediaItem(identifier: "BCTR", title: "BCTR", type: .musicStation, artwork: image)
+        
+        let intent = INPlayMediaIntent(mediaItems: [item])
+        intent.suggestedInvocationPhrase = "Play Blaine County Radio"
+        
+        let interaction = INInteraction(intent: intent, response: nil)
+        
+        interaction.donate { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }

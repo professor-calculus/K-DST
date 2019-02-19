@@ -37,6 +37,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSSiriUsageDescription</key>
+	<string>K-DST would like to access Siri</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>Titterton.K-DST.playback-activity-type</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

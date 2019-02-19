@@ -7,55 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F54A93B5BB83E5334BA1D19 /* Pods_K_DSTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0231EF3221008BA316D07F /* Pods_K_DSTUITests.framework */; };
-		4880B3A91691430EF4C2C9D8 /* Pods_K_DST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805BD5322DB3D329B87DD88D /* Pods_K_DST.framework */; };
-		48B66A3B328B962D9CD3C612 /* Pods_K_DSTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8510AE195D887F1D8E3D3D1F /* Pods_K_DSTTests.framework */; };
+		4B1F996B221C64D100770C16 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1F996A221C64D100770C16 /* UserDefaults.swift */; };
 		4B211EF02061C1EE00515474 /* songs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B211EEF2061C1EE00515474 /* songs.txt */; };
+		4B7BEC88221B73BB007E6E92 /* RadioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7BEC81221B73BB007E6E92 /* RadioKit.framework */; };
+		4B7BEC89221B73BB007E6E92 /* RadioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7BEC81221B73BB007E6E92 /* RadioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B7BEC8E221B73CF007E6E92 /* KDST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE2ACD2062D1DA00DC3F6C /* KDST.swift */; };
+		4B7BEC8F221B73CF007E6E92 /* LSRR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6F3F5220C537800F94221 /* LSRR.swift */; };
+		4B7BEC90221B73CF007E6E92 /* BCTR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6F3F7220C538400F94221 /* BCTR.swift */; };
+		4B7BEC92221B7464007E6E92 /* RadioPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BEC91221B7464007E6E92 /* RadioPlaybackManager.swift */; };
+		4B7BEC94221B764F007E6E92 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 4B7BEC93221B764F007E6E92 /* images */; };
+		4B7BEC96221B7660007E6E92 /* RadioKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B7BEC95221B7660007E6E92 /* RadioKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B7BEC98221B7C2C007E6E92 /* RadioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7BEC81221B73BB007E6E92 /* RadioKit.framework */; };
+		4B8C84D32219F8EE001A00B1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C84D22219F8EE001A00B1 /* IntentHandler.swift */; };
+		4B8C84D72219F8EE001A00B1 /* SiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4B8C84D02219F8EE001A00B1 /* SiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4B8CDD2F2065747F00C799E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB94EC2065720700CA2F1B /* ViewController.swift */; };
 		4BB7F92320617E250062F04B /* bkg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BB7F92220617E250062F04B /* bkg.jpg */; };
 		4BB7F925206181420062F04B /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 4BB7F924206181420062F04B /* icons */; };
-		4BBE2ACE2062D1DA00DC3F6C /* KDST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE2ACD2062D1DA00DC3F6C /* KDST.swift */; };
-		4BC6F3F6220C537800F94221 /* LSRR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6F3F5220C537800F94221 /* LSRR.swift */; };
-		4BC6F3F8220C538400F94221 /* BCTR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6F3F7220C538400F94221 /* BCTR.swift */; };
 		4BC6F3FA220C539500F94221 /* audio in Resources */ = {isa = PBXBuildFile; fileRef = 4BC6F3F9220C539500F94221 /* audio */; };
 		4BC6F400220CCB8300F94221 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4BC6F3FF220CCB8300F94221 /* Settings.bundle */; };
 		4BCE6D242061735200ED505D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE6D232061735200ED505D /* AppDelegate.swift */; };
 		4BCE6D292061735200ED505D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BCE6D272061735200ED505D /* Main.storyboard */; };
 		4BCE6D2B2061735200ED505D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BCE6D2A2061735200ED505D /* Assets.xcassets */; };
 		4BCE6D2E2061735200ED505D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BCE6D2C2061735200ED505D /* LaunchScreen.storyboard */; };
-		4BCE6D392061735200ED505D /* K_DSTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE6D382061735200ED505D /* K_DSTTests.swift */; };
-		4BCE6D442061735200ED505D /* K_DSTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE6D432061735200ED505D /* K_DSTUITests.swift */; };
 		4BCE6D5520617A8B00ED505D /* K-DST_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BCE6D5420617A8B00ED505D /* K-DST_Icon.png */; };
+		4BD11621221C769500FEBEAA /* audio in Resources */ = {isa = PBXBuildFile; fileRef = 4BC6F3F9220C539500F94221 /* audio */; };
+		4BD11622221C769800FEBEAA /* images in Resources */ = {isa = PBXBuildFile; fileRef = 4B7BEC93221B764F007E6E92 /* images */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4B0BC4F92217068C00CA1A9F /* PBXContainerItemProxy */ = {
+		4B7BEC86221B73BB007E6E92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BCE6D182061735200ED505D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4B0BC4E62217068A00CA1A9F;
-			remoteInfo = "K-DST_mac";
+			remoteGlobalIDString = 4B7BEC80221B73BB007E6E92;
+			remoteInfo = RadioKit;
 		};
-		4B0BC5042217068D00CA1A9F /* PBXContainerItemProxy */ = {
+		4B8C84D52219F8EE001A00B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BCE6D182061735200ED505D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4B0BC4E62217068A00CA1A9F;
-			remoteInfo = "K-DST_mac";
-		};
-		4BCE6D352061735200ED505D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4BCE6D182061735200ED505D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4BCE6D1F2061735200ED505D;
-			remoteInfo = "K-DST";
-		};
-		4BCE6D402061735200ED505D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4BCE6D182061735200ED505D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4BCE6D1F2061735200ED505D;
-			remoteInfo = "K-DST";
+			remoteGlobalIDString = 4B8C84CF2219F8EE001A00B1;
+			remoteInfo = SiriExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -70,12 +62,24 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B7BEC8D221B73BB007E6E92 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B7BEC89221B73BB007E6E92 /* RadioKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BC0FCA52062E1AD00907A25 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				4B8C84D72219F8EE001A00B1 /* SiriExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,14 +87,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B0231EF3221008BA316D07F /* Pods_K_DSTUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_K_DSTUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		214D5D149AF40196266079AC /* Pods-K-DSTTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-K-DSTTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-K-DSTTests/Pods-K-DSTTests.debug.xcconfig"; sourceTree = "<group>"; };
-		384495C0F916099FEFBD33F3 /* Pods-K-DSTTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-K-DSTTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-K-DSTTests/Pods-K-DSTTests.release.xcconfig"; sourceTree = "<group>"; };
-		3A4A1D011D0F3FBACA086959 /* Pods-K-DSTUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-K-DSTUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-K-DSTUITests/Pods-K-DSTUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B0BC4E72217068A00CA1A9F /* K-DST_mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "K-DST_mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B0BC4F82217068C00CA1A9F /* K-DST_macTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "K-DST_macTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B0BC5032217068D00CA1A9F /* K-DST_macUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "K-DST_macUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B1F996A221C64D100770C16 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		4B211EEF2061C1EE00515474 /* songs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = songs.txt; sourceTree = "<group>"; };
+		4B7BEC81221B73BB007E6E92 /* RadioKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RadioKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B7BEC84221B73BB007E6E92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B7BEC91221B7464007E6E92 /* RadioPlaybackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlaybackManager.swift; sourceTree = "<group>"; };
+		4B7BEC93221B764F007E6E92 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		4B7BEC95221B7660007E6E92 /* RadioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioKit.h; sourceTree = "<group>"; };
+		4B7BEC97221B7BFC007E6E92 /* SiriExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SiriExtension.entitlements; sourceTree = "<group>"; };
+		4B8C84762219ECD3001A00B1 /* K-DST.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "K-DST.entitlements"; sourceTree = "<group>"; };
+		4B8C84D02219F8EE001A00B1 /* SiriExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SiriExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B8C84D22219F8EE001A00B1 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		4B8C84D42219F8EE001A00B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB7F92220617E250062F04B /* bkg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkg.jpg; sourceTree = "<group>"; };
 		4BB7F924206181420062F04B /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 		4BBE2ACD2062D1DA00DC3F6C /* KDST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDST.swift; sourceTree = "<group>"; };
@@ -105,40 +113,23 @@
 		4BCE6D2A2061735200ED505D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BCE6D2D2061735200ED505D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BCE6D2F2061735200ED505D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BCE6D342061735200ED505D /* K-DSTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "K-DSTTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BCE6D382061735200ED505D /* K_DSTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K_DSTTests.swift; sourceTree = "<group>"; };
-		4BCE6D3A2061735200ED505D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BCE6D3F2061735200ED505D /* K-DSTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "K-DSTUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BCE6D432061735200ED505D /* K_DSTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K_DSTUITests.swift; sourceTree = "<group>"; };
-		4BCE6D452061735200ED505D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BCE6D5420617A8B00ED505D /* K-DST_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "K-DST_Icon.png"; sourceTree = "<group>"; };
 		4BEB94EC2065720700CA2F1B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		805BD5322DB3D329B87DD88D /* Pods_K_DST.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_K_DST.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8510AE195D887F1D8E3D3D1F /* Pods_K_DSTTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_K_DSTTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		876BB1BB481719B2850A63B1 /* Pods-K-DSTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-K-DSTUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-K-DSTUITests/Pods-K-DSTUITests.release.xcconfig"; sourceTree = "<group>"; };
-		8C805E4C2EAD4C467689B998 /* Pods-K-DST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-K-DST.release.xcconfig"; path = "Pods/Target Support Files/Pods-K-DST/Pods-K-DST.release.xcconfig"; sourceTree = "<group>"; };
-		FE19784DD6DEF5B5C5318DF1 /* Pods-K-DST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-K-DST.debug.xcconfig"; path = "Pods/Target Support Files/Pods-K-DST/Pods-K-DST.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4B0BC4E42217068A00CA1A9F /* Frameworks */ = {
+		4B7BEC7E221B73BB007E6E92 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B0BC4F52217068C00CA1A9F /* Frameworks */ = {
+		4B8C84CD2219F8EE001A00B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B0BC5002217068D00CA1A9F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				4B7BEC98221B7C2C007E6E92 /* RadioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,36 +137,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4880B3A91691430EF4C2C9D8 /* Pods_K_DST.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BCE6D312061735200ED505D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48B66A3B328B962D9CD3C612 /* Pods_K_DSTTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BCE6D3C2061735200ED505D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F54A93B5BB83E5334BA1D19 /* Pods_K_DSTUITests.framework in Frameworks */,
+				4B7BEC88221B73BB007E6E92 /* RadioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B7BEC82221B73BB007E6E92 /* RadioKit */ = {
+			isa = PBXGroup;
+			children = (
+				4BC6F3F9220C539500F94221 /* audio */,
+				4B7BEC93221B764F007E6E92 /* images */,
+				4B7BEC91221B7464007E6E92 /* RadioPlaybackManager.swift */,
+				4B7BEC95221B7660007E6E92 /* RadioKit.h */,
+				4BBE2ACD2062D1DA00DC3F6C /* KDST.swift */,
+				4BC6F3F5220C537800F94221 /* LSRR.swift */,
+				4BC6F3F7220C538400F94221 /* BCTR.swift */,
+				4B1F996A221C64D100770C16 /* UserDefaults.swift */,
+				4B7BEC84221B73BB007E6E92 /* Info.plist */,
+			);
+			path = RadioKit;
+			sourceTree = "<group>";
+		};
+		4B8C84D12219F8EE001A00B1 /* SiriExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BEC97221B7BFC007E6E92 /* SiriExtension.entitlements */,
+				4B8C84D22219F8EE001A00B1 /* IntentHandler.swift */,
+				4B8C84D42219F8EE001A00B1 /* Info.plist */,
+			);
+			path = SiriExtension;
+			sourceTree = "<group>";
+		};
 		4BC0FC8F2062E1AD00907A25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4BC0FC902062E1AD00907A25 /* IntentsUI.framework */,
-				805BD5322DB3D329B87DD88D /* Pods_K_DST.framework */,
-				8510AE195D887F1D8E3D3D1F /* Pods_K_DSTTests.framework */,
-				0B0231EF3221008BA316D07F /* Pods_K_DSTUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,11 +182,10 @@
 			isa = PBXGroup;
 			children = (
 				4BCE6D222061735200ED505D /* K-DST */,
-				4BCE6D372061735200ED505D /* K-DSTTests */,
-				4BCE6D422061735200ED505D /* K-DSTUITests */,
+				4B8C84D12219F8EE001A00B1 /* SiriExtension */,
+				4B7BEC82221B73BB007E6E92 /* RadioKit */,
 				4BC0FC8F2062E1AD00907A25 /* Frameworks */,
 				4BCE6D212061735200ED505D /* Products */,
-				5C9E0B2DA0ED246778F85304 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,11 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				4BCE6D202061735200ED505D /* K-DST.app */,
-				4BCE6D342061735200ED505D /* K-DSTTests.xctest */,
-				4BCE6D3F2061735200ED505D /* K-DSTUITests.xctest */,
-				4B0BC4E72217068A00CA1A9F /* K-DST_mac.app */,
-				4B0BC4F82217068C00CA1A9F /* K-DST_macTests.xctest */,
-				4B0BC5032217068D00CA1A9F /* K-DST_macUITests.xctest */,
+				4B8C84D02219F8EE001A00B1 /* SiriExtension.appex */,
+				4B7BEC81221B73BB007E6E92 /* RadioKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,11 +202,8 @@
 		4BCE6D222061735200ED505D /* K-DST */ = {
 			isa = PBXGroup;
 			children = (
+				4B8C84762219ECD3001A00B1 /* K-DST.entitlements */,
 				4BCE6D232061735200ED505D /* AppDelegate.swift */,
-				4BBE2ACD2062D1DA00DC3F6C /* KDST.swift */,
-				4BC6F3F5220C537800F94221 /* LSRR.swift */,
-				4BC6F3F7220C538400F94221 /* BCTR.swift */,
-				4BC6F3F9220C539500F94221 /* audio */,
 				4BEB94EC2065720700CA2F1B /* ViewController.swift */,
 				4BC6F3FF220CCB8300F94221 /* Settings.bundle */,
 				4BCE6D272061735200ED505D /* Main.storyboard */,
@@ -227,156 +218,76 @@
 			path = "K-DST";
 			sourceTree = "<group>";
 		};
-		4BCE6D372061735200ED505D /* K-DSTTests */ = {
-			isa = PBXGroup;
-			children = (
-				4BCE6D382061735200ED505D /* K_DSTTests.swift */,
-				4BCE6D3A2061735200ED505D /* Info.plist */,
-			);
-			path = "K-DSTTests";
-			sourceTree = "<group>";
-		};
-		4BCE6D422061735200ED505D /* K-DSTUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4BCE6D432061735200ED505D /* K_DSTUITests.swift */,
-				4BCE6D452061735200ED505D /* Info.plist */,
-			);
-			path = "K-DSTUITests";
-			sourceTree = "<group>";
-		};
-		5C9E0B2DA0ED246778F85304 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FE19784DD6DEF5B5C5318DF1 /* Pods-K-DST.debug.xcconfig */,
-				8C805E4C2EAD4C467689B998 /* Pods-K-DST.release.xcconfig */,
-				214D5D149AF40196266079AC /* Pods-K-DSTTests.debug.xcconfig */,
-				384495C0F916099FEFBD33F3 /* Pods-K-DSTTests.release.xcconfig */,
-				3A4A1D011D0F3FBACA086959 /* Pods-K-DSTUITests.debug.xcconfig */,
-				876BB1BB481719B2850A63B1 /* Pods-K-DSTUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4B7BEC7C221B73BB007E6E92 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B7BEC96221B7660007E6E92 /* RadioKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		4B0BC4E62217068A00CA1A9F /* K-DST_mac */ = {
+		4B7BEC80221B73BB007E6E92 /* RadioKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B0BC5102217068D00CA1A9F /* Build configuration list for PBXNativeTarget "K-DST_mac" */;
+			buildConfigurationList = 4B7BEC8A221B73BB007E6E92 /* Build configuration list for PBXNativeTarget "RadioKit" */;
 			buildPhases = (
-				4B0BC4E32217068A00CA1A9F /* Sources */,
-				4B0BC4E42217068A00CA1A9F /* Frameworks */,
-				4B0BC4E52217068A00CA1A9F /* Resources */,
+				4B7BEC7C221B73BB007E6E92 /* Headers */,
+				4B7BEC7D221B73BB007E6E92 /* Sources */,
+				4B7BEC7E221B73BB007E6E92 /* Frameworks */,
+				4B7BEC7F221B73BB007E6E92 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "K-DST_mac";
-			productName = "K-DST_mac";
-			productReference = 4B0BC4E72217068A00CA1A9F /* K-DST_mac.app */;
-			productType = "com.apple.product-type.application";
+			name = RadioKit;
+			productName = RadioKit;
+			productReference = 4B7BEC81221B73BB007E6E92 /* RadioKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		4B0BC4F72217068C00CA1A9F /* K-DST_macTests */ = {
+		4B8C84CF2219F8EE001A00B1 /* SiriExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B0BC5112217068D00CA1A9F /* Build configuration list for PBXNativeTarget "K-DST_macTests" */;
+			buildConfigurationList = 4B8C84D82219F8EE001A00B1 /* Build configuration list for PBXNativeTarget "SiriExtension" */;
 			buildPhases = (
-				4B0BC4F42217068C00CA1A9F /* Sources */,
-				4B0BC4F52217068C00CA1A9F /* Frameworks */,
-				4B0BC4F62217068C00CA1A9F /* Resources */,
+				4B8C84CC2219F8EE001A00B1 /* Sources */,
+				4B8C84CD2219F8EE001A00B1 /* Frameworks */,
+				4B8C84CE2219F8EE001A00B1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4B0BC4FA2217068C00CA1A9F /* PBXTargetDependency */,
 			);
-			name = "K-DST_macTests";
-			productName = "K-DST_macTests";
-			productReference = 4B0BC4F82217068C00CA1A9F /* K-DST_macTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4B0BC5022217068D00CA1A9F /* K-DST_macUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4B0BC5122217068D00CA1A9F /* Build configuration list for PBXNativeTarget "K-DST_macUITests" */;
-			buildPhases = (
-				4B0BC4FF2217068D00CA1A9F /* Sources */,
-				4B0BC5002217068D00CA1A9F /* Frameworks */,
-				4B0BC5012217068D00CA1A9F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4B0BC5052217068D00CA1A9F /* PBXTargetDependency */,
-			);
-			name = "K-DST_macUITests";
-			productName = "K-DST_macUITests";
-			productReference = 4B0BC5032217068D00CA1A9F /* K-DST_macUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = SiriExtension;
+			productName = SiriExtension;
+			productReference = 4B8C84D02219F8EE001A00B1 /* SiriExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		4BCE6D1F2061735200ED505D /* K-DST */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BCE6D482061735200ED505D /* Build configuration list for PBXNativeTarget "K-DST" */;
 			buildPhases = (
-				5342821EA6BB16E5FAD7C71E /* [CP] Check Pods Manifest.lock */,
 				4BCE6D1C2061735200ED505D /* Sources */,
 				4BCE6D1D2061735200ED505D /* Frameworks */,
 				4BCE6D1E2061735200ED505D /* Resources */,
 				4BC0FCA52062E1AD00907A25 /* Embed App Extensions */,
 				4B42EC5A21A449C700B96E55 /* Embed Watch Content */,
-				4225197C0FF88D40D9CEB67F /* [CP] Embed Pods Frameworks */,
-				4FC3753D3BC71585186E31AD /* [CP] Copy Pods Resources */,
+				4B7BEC8D221B73BB007E6E92 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B8C84D62219F8EE001A00B1 /* PBXTargetDependency */,
+				4B7BEC87221B73BB007E6E92 /* PBXTargetDependency */,
 			);
 			name = "K-DST";
 			productName = "K-DST";
 			productReference = 4BCE6D202061735200ED505D /* K-DST.app */;
 			productType = "com.apple.product-type.application";
-		};
-		4BCE6D332061735200ED505D /* K-DSTTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4BCE6D4B2061735200ED505D /* Build configuration list for PBXNativeTarget "K-DSTTests" */;
-			buildPhases = (
-				51335B95796FFD2725F16B40 /* [CP] Check Pods Manifest.lock */,
-				4BCE6D302061735200ED505D /* Sources */,
-				4BCE6D312061735200ED505D /* Frameworks */,
-				4BCE6D322061735200ED505D /* Resources */,
-				2C401B78B98D4003DF305241 /* [CP] Embed Pods Frameworks */,
-				4F98FE095CBE085E43B2A00E /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4BCE6D362061735200ED505D /* PBXTargetDependency */,
-			);
-			name = "K-DSTTests";
-			productName = "K-DSTTests";
-			productReference = 4BCE6D342061735200ED505D /* K-DSTTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4BCE6D3E2061735200ED505D /* K-DSTUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4BCE6D4E2061735200ED505D /* Build configuration list for PBXNativeTarget "K-DSTUITests" */;
-			buildPhases = (
-				C386CFEC32FD1C0B7CC0A30E /* [CP] Check Pods Manifest.lock */,
-				4BCE6D3B2061735200ED505D /* Sources */,
-				4BCE6D3C2061735200ED505D /* Frameworks */,
-				4BCE6D3D2061735200ED505D /* Resources */,
-				185A0B3C78F705AB7BC07CA9 /* [CP] Embed Pods Frameworks */,
-				52EB95486A78FE527930E6F1 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4BCE6D412061735200ED505D /* PBXTargetDependency */,
-			);
-			name = "K-DSTUITests";
-			productName = "K-DSTUITests";
-			productReference = 4BCE6D3F2061735200ED505D /* K-DSTUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -385,41 +296,37 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Alexander Titterton";
 				TargetAttributes = {
-					4B0BC4E62217068A00CA1A9F = {
+					4B7BEC80221B73BB007E6E92 = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
-					4B0BC4F72217068C00CA1A9F = {
+					4B8C84CF2219F8EE001A00B1 = {
 						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 4B0BC4E62217068A00CA1A9F;
-					};
-					4B0BC5022217068D00CA1A9F = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 4B0BC4E62217068A00CA1A9F;
-					};
-					4BCE6D1F2061735200ED505D = {
-						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
-							com.apple.BackgroundModes = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
 					};
-					4BCE6D332061735200ED505D = {
+					4BCE6D1F2061735200ED505D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 4BCE6D1F2061735200ED505D;
-					};
-					4BCE6D3E2061735200ED505D = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 4BCE6D1F2061735200ED505D;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -437,31 +344,23 @@
 			projectRoot = "";
 			targets = (
 				4BCE6D1F2061735200ED505D /* K-DST */,
-				4BCE6D332061735200ED505D /* K-DSTTests */,
-				4BCE6D3E2061735200ED505D /* K-DSTUITests */,
-				4B0BC4E62217068A00CA1A9F /* K-DST_mac */,
-				4B0BC4F72217068C00CA1A9F /* K-DST_macTests */,
-				4B0BC5022217068D00CA1A9F /* K-DST_macUITests */,
+				4B8C84CF2219F8EE001A00B1 /* SiriExtension */,
+				4B7BEC80221B73BB007E6E92 /* RadioKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4B0BC4E52217068A00CA1A9F /* Resources */ = {
+		4B7BEC7F221B73BB007E6E92 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7BEC94221B764F007E6E92 /* images in Resources */,
+				4BD11621221C769500FEBEAA /* audio in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B0BC4F62217068C00CA1A9F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B0BC5012217068D00CA1A9F /* Resources */ = {
+		4B8C84CE2219F8EE001A00B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD11622221C769800FEBEAA /* images in Resources */,
 				4BB7F92320617E250062F04B /* bkg.jpg in Resources */,
 				4B211EF02061C1EE00515474 /* songs.txt in Resources */,
 				4BCE6D5520617A8B00ED505D /* K-DST_Icon.png in Resources */,
@@ -484,191 +384,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4BCE6D322061735200ED505D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BCE6D3D2061735200ED505D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		185A0B3C78F705AB7BC07CA9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-K-DSTUITests/Pods-K-DSTUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2C401B78B98D4003DF305241 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-K-DSTTests/Pods-K-DSTTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4225197C0FF88D40D9CEB67F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-K-DST/Pods-K-DST-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ScalingCarousel/ScalingCarousel.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScalingCarousel.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-K-DST/Pods-K-DST-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F98FE095CBE085E43B2A00E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-K-DSTTests/Pods-K-DSTTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4FC3753D3BC71585186E31AD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-K-DST/Pods-K-DST-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		51335B95796FFD2725F16B40 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-K-DSTTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52EB95486A78FE527930E6F1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-K-DSTUITests/Pods-K-DSTUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5342821EA6BB16E5FAD7C71E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-K-DST-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C386CFEC32FD1C0B7CC0A30E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-K-DSTUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		4B0BC4E32217068A00CA1A9F /* Sources */ = {
+		4B7BEC7D221B73BB007E6E92 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7BEC8F221B73CF007E6E92 /* LSRR.swift in Sources */,
+				4B1F996B221C64D100770C16 /* UserDefaults.swift in Sources */,
+				4B7BEC90221B73CF007E6E92 /* BCTR.swift in Sources */,
+				4B7BEC92221B7464007E6E92 /* RadioPlaybackManager.swift in Sources */,
+				4B7BEC8E221B73CF007E6E92 /* KDST.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B0BC4F42217068C00CA1A9F /* Sources */ = {
+		4B8C84CC2219F8EE001A00B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B0BC4FF2217068D00CA1A9F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				4B8C84D32219F8EE001A00B1 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,52 +411,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BC6F3F8220C538400F94221 /* BCTR.swift in Sources */,
-				4BC6F3F6220C537800F94221 /* LSRR.swift in Sources */,
 				4B8CDD2F2065747F00C799E1 /* ViewController.swift in Sources */,
 				4BCE6D242061735200ED505D /* AppDelegate.swift in Sources */,
-				4BBE2ACE2062D1DA00DC3F6C /* KDST.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BCE6D302061735200ED505D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4BCE6D392061735200ED505D /* K_DSTTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BCE6D3B2061735200ED505D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4BCE6D442061735200ED505D /* K_DSTUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4B0BC4FA2217068C00CA1A9F /* PBXTargetDependency */ = {
+		4B7BEC87221B73BB007E6E92 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4B0BC4E62217068A00CA1A9F /* K-DST_mac */;
-			targetProxy = 4B0BC4F92217068C00CA1A9F /* PBXContainerItemProxy */;
+			target = 4B7BEC80221B73BB007E6E92 /* RadioKit */;
+			targetProxy = 4B7BEC86221B73BB007E6E92 /* PBXContainerItemProxy */;
 		};
-		4B0BC5052217068D00CA1A9F /* PBXTargetDependency */ = {
+		4B8C84D62219F8EE001A00B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4B0BC4E62217068A00CA1A9F /* K-DST_mac */;
-			targetProxy = 4B0BC5042217068D00CA1A9F /* PBXContainerItemProxy */;
-		};
-		4BCE6D362061735200ED505D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4BCE6D1F2061735200ED505D /* K-DST */;
-			targetProxy = 4BCE6D352061735200ED505D /* PBXContainerItemProxy */;
-		};
-		4BCE6D412061735200ED505D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4BCE6D1F2061735200ED505D /* K-DST */;
-			targetProxy = 4BCE6D402061735200ED505D /* PBXContainerItemProxy */;
+			target = 4B8C84CF2219F8EE001A00B1 /* SiriExtension */;
+			targetProxy = 4B8C84D52219F8EE001A00B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -745,142 +451,105 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4B0BC50A2217068D00CA1A9F /* Debug */ = {
+		4B7BEC8B221B73BB007E6E92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_ENTITLEMENTS = "K-DST_mac/K_DST_mac.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = A63C9863R4;
-				INFOPLIST_FILE = "K-DST_mac/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RadioKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST-mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Titterton.RadioKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		4B0BC50B2217068D00CA1A9F /* Release */ = {
+		4B7BEC8C221B73BB007E6E92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_ENTITLEMENTS = "K-DST_mac/K_DST_mac.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = A63C9863R4;
-				INFOPLIST_FILE = "K-DST_mac/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RadioKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST-mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Titterton.RadioKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		4B0BC50C2217068D00CA1A9F /* Debug */ = {
+		4B8C84D92219F8EE001A00B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_ENTITLEMENTS = SiriExtension/SiriExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A63C9863R4;
-				INFOPLIST_FILE = "K-DST_macTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				INFOPLIST_FILE = SiriExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST-macTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST.SiriExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K-DST_mac.app/Contents/MacOS/K-DST_mac";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4B0BC50D2217068D00CA1A9F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A63C9863R4;
-				INFOPLIST_FILE = "K-DST_macTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST-macTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K-DST_mac.app/Contents/MacOS/K-DST_mac";
-			};
-			name = Release;
-		};
-		4B0BC50E2217068D00CA1A9F /* Debug */ = {
+		4B8C84DA2219F8EE001A00B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_ENTITLEMENTS = SiriExtension/SiriExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A63C9863R4;
-				INFOPLIST_FILE = "K-DST_macUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				INFOPLIST_FILE = SiriExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST-macUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST.SiriExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = "K-DST_mac";
-			};
-			name = Debug;
-		};
-		4B0BC50F2217068D00CA1A9F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A63C9863R4;
-				INFOPLIST_FILE = "K-DST_macUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST-macUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = "K-DST_mac";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -898,6 +567,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -905,6 +575,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -955,6 +626,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -962,6 +634,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -993,14 +666,16 @@
 		};
 		4BCE6D492061735200ED505D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE19784DD6DEF5B5C5318DF1 /* Pods-K-DST.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "K-DST/K-DST.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A63C9863R4;
 				INFOPLIST_FILE = "K-DST/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1012,14 +687,16 @@
 		};
 		4BCE6D4A2061735200ED505D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C805E4C2EAD4C467689B998 /* Pods-K-DST.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "K-DST/K-DST.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A63C9863R4;
 				INFOPLIST_FILE = "K-DST/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DST";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1029,98 +706,23 @@
 			};
 			name = Release;
 		};
-		4BCE6D4C2061735200ED505D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 214D5D149AF40196266079AC /* Pods-K-DSTTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "K-DSTTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DSTTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K-DST.app/K-DST";
-			};
-			name = Debug;
-		};
-		4BCE6D4D2061735200ED505D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 384495C0F916099FEFBD33F3 /* Pods-K-DSTTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "K-DSTTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DSTTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K-DST.app/K-DST";
-			};
-			name = Release;
-		};
-		4BCE6D4F2061735200ED505D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A4A1D011D0F3FBACA086959 /* Pods-K-DSTUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "K-DSTUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DSTUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "K-DST";
-			};
-			name = Debug;
-		};
-		4BCE6D502061735200ED505D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 876BB1BB481719B2850A63B1 /* Pods-K-DSTUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "K-DSTUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Titterton.K-DSTUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "K-DST";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B0BC5102217068D00CA1A9F /* Build configuration list for PBXNativeTarget "K-DST_mac" */ = {
+		4B7BEC8A221B73BB007E6E92 /* Build configuration list for PBXNativeTarget "RadioKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B0BC50A2217068D00CA1A9F /* Debug */,
-				4B0BC50B2217068D00CA1A9F /* Release */,
+				4B7BEC8B221B73BB007E6E92 /* Debug */,
+				4B7BEC8C221B73BB007E6E92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B0BC5112217068D00CA1A9F /* Build configuration list for PBXNativeTarget "K-DST_macTests" */ = {
+		4B8C84D82219F8EE001A00B1 /* Build configuration list for PBXNativeTarget "SiriExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B0BC50C2217068D00CA1A9F /* Debug */,
-				4B0BC50D2217068D00CA1A9F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4B0BC5122217068D00CA1A9F /* Build configuration list for PBXNativeTarget "K-DST_macUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4B0BC50E2217068D00CA1A9F /* Debug */,
-				4B0BC50F2217068D00CA1A9F /* Release */,
+				4B8C84D92219F8EE001A00B1 /* Debug */,
+				4B8C84DA2219F8EE001A00B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1139,24 +741,6 @@
 			buildConfigurations = (
 				4BCE6D492061735200ED505D /* Debug */,
 				4BCE6D4A2061735200ED505D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4BCE6D4B2061735200ED505D /* Build configuration list for PBXNativeTarget "K-DSTTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4BCE6D4C2061735200ED505D /* Debug */,
-				4BCE6D4D2061735200ED505D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4BCE6D4E2061735200ED505D /* Build configuration list for PBXNativeTarget "K-DSTUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4BCE6D4F2061735200ED505D /* Debug */,
-				4BCE6D502061735200ED505D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

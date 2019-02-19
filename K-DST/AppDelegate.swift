@@ -7,36 +7,39 @@
 //
 
 import UIKit
+import Intents
+import RadioKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    var autoPlay: Int = -1
+    var radioManager: RadioPlaybackManager?
+    
     
     // Opens normally, i.e. when tapping on the app from home screen
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         print("Launched")
-        autoPlay = -1
         application.isIdleTimerDisabled = true
         return true
     }
-
-    // Automatically play audio if opened via URL "KDST://" (for Siri shortcut)
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        // Override point for customization after application launch.
-        application.isIdleTimerDisabled = true
+    
+    // For Siri
+    func application(_ application: UIApplication, handle intent: INIntent, completionHandler: @escaping (INIntentResponse) -> Void) {
         
-        autoPlay = -1
-        print("Called via URL")
-        if url.query == "KDST" {autoPlay = 0}
-        else if url.query == "LSRR" {autoPlay = 1}
-        else if url.query == "BCTR" {autoPlay = 2}
-        else {autoPlay = -1}
+        guard let mediaIntent = intent as? INPlayMediaIntent,
+            let station = mediaIntent.mediaItems?[0].title
+            else {
+                completionHandler(INPlayMediaIntentResponse(code: .failure, userActivity: nil))
+                return
+        }
         
-        return true
+        // Choose the station as requested and start playing
+        RadioPlaybackManager.shared.chooseStation(for: station)
+        
+        let response = INPlayMediaIntentResponse(code: .success, userActivity: nil)
+        completionHandler(response)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -47,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        autoPlay = -1
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
