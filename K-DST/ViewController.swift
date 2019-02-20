@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     // Swipe image container
     @IBOutlet weak var swipeImageView: UIImageView!
-    // Type in the names of your images below
     
     func registerSettingsBundle(){
         let appDefaults = [String:AnyObject]()
@@ -69,12 +68,12 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.updatePlayButton),
-            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            name: NSNotification.Name.MPMusicPlayerControllerPlaybackStateDidChange,
             object: nil)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.updateImage),
-            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange,
             object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)

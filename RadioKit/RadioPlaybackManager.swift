@@ -98,6 +98,8 @@ public class RadioPlaybackManager: NSObject {
         })
         
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationTitles[currentStation]!, MPMediaItemPropertyArtist: stationTitles[currentStation]!, MPMediaItemPropertyArtwork: artwork]
+        
+        NotificationCenter.default.post(name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: self)
     }
     
     public func prevStation() {
@@ -123,6 +125,8 @@ public class RadioPlaybackManager: NSObject {
         })
         
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationTitles[currentStation]!, MPMediaItemPropertyArtist: stationTitles[currentStation]!, MPMediaItemPropertyArtwork: artwork]
+        
+        NotificationCenter.default.post(name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: self)
     }
     
     // Play and change play/pause button to pause
@@ -145,6 +149,8 @@ public class RadioPlaybackManager: NSObject {
         })
         
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationTitles[currentStation]!, MPMediaItemPropertyArtist: stationTitles[currentStation]!, MPMediaItemPropertyArtwork: artwork]
+        
+        NotificationCenter.default.post(name: .MPMusicPlayerControllerPlaybackStateDidChange, object: self)
     }
     
     
@@ -155,6 +161,8 @@ public class RadioPlaybackManager: NSObject {
             stations[stationIndices[station]!].pause()
         }
         hasBeenPaused = true
+        
+        NotificationCenter.default.post(name: .MPMusicPlayerControllerPlaybackStateDidChange, object: self)
     }
     
     // Re-jig the order
@@ -212,3 +220,4 @@ public class RadioPlaybackManager: NSObject {
         }
     }
 }
+
