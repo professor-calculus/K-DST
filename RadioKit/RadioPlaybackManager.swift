@@ -20,6 +20,8 @@ public class RadioPlaybackManager: NSObject {
     public var backgroundContinue = false
     public var hasBeenPaused = true
     
+    var timeObserver: Any?
+    
     let images = ["K-DST": UIImage(named: "images/Icon-256.png"),
                          "LSRR": UIImage(named: "images/LSRR.png"),
                          "BCTR": UIImage(named: "images/BCTR.png")]
@@ -71,8 +73,12 @@ public class RadioPlaybackManager: NSObject {
     
     // For when Siri requests a given station, whether we're already playing something or not
     public func chooseStation(for station: String) {
+        
+        setOnPause()
         currentStation = station
         setOnPlay()
+        
+        NotificationCenter.default.post(name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: self)
     }
     
     public func nextStation() {
@@ -82,24 +88,7 @@ public class RadioPlaybackManager: NSObject {
         else if currentStation == "LSRR" { newStation = "BCTR"}
         else { newStation = "K-DST"}
         
-        if hasBeenPaused == false
-        {
-            stations[stationIndices[currentStation]!].isMuted = true
-            stations[stationIndices[newStation]!].isMuted = false
-            stations[stationIndices[newStation]!].play()
-            if backgroundContinue == false {stations[stationIndices[currentStation]!].pause()}
-        }
-        
-        currentStation = newStation
-        
-        let image = CC_images[currentStation]!
-        let artwork = MPMediaItemArtwork.init(boundsSize: image!.size, requestHandler: { (size) -> UIImage in
-            return image!
-        })
-        
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationTitles[currentStation]!, MPMediaItemPropertyArtist: stationTitles[currentStation]!, MPMediaItemPropertyArtwork: artwork]
-        
-        NotificationCenter.default.post(name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: self)
+        chooseStation(for: newStation)
     }
     
     public func prevStation() {
@@ -109,24 +98,7 @@ public class RadioPlaybackManager: NSObject {
         else if currentStation == "LSRR" { newStation = "K-DST"}
         else { newStation = "LSRR"}
         
-        if hasBeenPaused == false
-        {
-            stations[stationIndices[currentStation]!].isMuted = true
-            stations[stationIndices[newStation]!].isMuted = false
-            stations[stationIndices[newStation]!].play()
-            if backgroundContinue == false {stations[stationIndices[currentStation]!].pause()}
-        }
-        
-        currentStation = newStation
-        
-        let image = CC_images[currentStation]!
-        let artwork = MPMediaItemArtwork.init(boundsSize: image!.size, requestHandler: { (size) -> UIImage in
-            return image!
-        })
-        
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationTitles[currentStation]!, MPMediaItemPropertyArtist: stationTitles[currentStation]!, MPMediaItemPropertyArtwork: artwork]
-        
-        NotificationCenter.default.post(name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: self)
+        chooseStation(for: newStation)
     }
     
     // Play and change play/pause button to pause
@@ -136,11 +108,21 @@ public class RadioPlaybackManager: NSObject {
 
         for station in self.stationNames
         {
-            if backgroundContinue || station == currentStation {stations[stationIndices[station]!].play()}
+            if station == currentStation {stations[stationIndices[station]!].play()}
             else {stations[stationIndices[station]!].pause()}
             if station == currentStation {stations[stationIndices[station]!].isMuted = false}
             else {stations[stationIndices[station]!].isMuted = true}
         }
+        
+        if backgroundContinue == true
+        {
+            self.timeObserver = stations[stationIndices[currentStation]!].addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(2, 1), queue: DispatchQueue.main) {
+                (CMTime) -> Void in
+                
+                self.updateBackgroundStations()
+            }
+        }
+        
         hasBeenPaused = false
         
         let image = CC_images[currentStation]!
@@ -162,12 +144,19 @@ public class RadioPlaybackManager: NSObject {
         }
         hasBeenPaused = true
         
+        // Remove time observer so that background stations don't update when app is paused
+        if let token = self.timeObserver
+        {
+            stations[stationIndices[currentStation]!].removeTimeObserver(token)
+            self.timeObserver = nil
+        }
+        
         NotificationCenter.default.post(name: .MPMusicPlayerControllerPlaybackStateDidChange, object: self)
     }
     
     // Re-jig the order
     public func restart() {
-        stations[stationIndices[currentStation]!].pause()
+        setOnPause()
         
         if currentStation == "K-DST" {stations[stationIndices[currentStation]!] = KDST()}
         else if currentStation == "LSRR" {stations[stationIndices[currentStation]!] = LSRR()}
@@ -179,6 +168,21 @@ public class RadioPlaybackManager: NSObject {
     
     public func skip() {
         stations[stationIndices[currentStation]!].advanceToNextItem()
+    }
+    
+    func updateBackgroundStations() {
+        for station in stationNames
+        {
+            if (backgroundContinue == true) && (hasBeenPaused == false) && (station != currentStation)
+            {
+                let currentTime = stations[stationIndices[station]!].currentTime().seconds
+                let duration = stations[stationIndices[station]!].currentItem?.duration.seconds
+                
+                if duration! - currentTime < 3 {stations[stationIndices[station]!].advanceToNextItem()}
+                else {stations[stationIndices[station]!].seek(to: CMTime(seconds: currentTime + 2,
+                                                                         preferredTimescale: 1) )}
+            }
+        }
     }
     
     // So we can use media buttons on lock screen, command centre, headphones, Apple Watch etc.
