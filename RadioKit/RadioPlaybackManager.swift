@@ -20,6 +20,8 @@ public class RadioPlaybackManager: NSObject {
     public var backgroundContinue = false
     public var hasBeenPaused = true
     
+    var timeSinceSync: Double = 0
+    
     var timeObserver: Any?
     
     let images = ["K-DST": UIImage(named: "images/Icon-256.png"),
@@ -71,12 +73,26 @@ public class RadioPlaybackManager: NSObject {
     
     //let audioSession = AVAudioSession.sharedInstance()
     
-    // For when Siri requests a given station, whether we're already playing something or not
-    public func chooseStation(for station: String) {
+    
+    public func chooseStation(for station: String, fromSiri: Bool = false) {
         
+        let tmp_paused = hasBeenPaused
         setOnPause()
+        
         currentStation = station
-        setOnPlay()
+        
+        // Only play if already playing or if Siri requests a station
+        if (tmp_paused == false) || (fromSiri == true)
+        {
+            setOnPlay()
+        }
+        
+        let image = CC_images[currentStation]!
+        let artwork = MPMediaItemArtwork.init(boundsSize: image!.size, requestHandler: { (size) -> UIImage in
+            return image!
+        })
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: stationTitles[currentStation]!, MPMediaItemPropertyArtist: stationTitles[currentStation]!, MPMediaItemPropertyArtwork: artwork]
         
         NotificationCenter.default.post(name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: self)
     }
@@ -116,10 +132,10 @@ public class RadioPlaybackManager: NSObject {
         
         if backgroundContinue == true
         {
-            self.timeObserver = stations[stationIndices[currentStation]!].addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(2, 1), queue: DispatchQueue.main) {
+            self.timeObserver = stations[stationIndices[currentStation]!].addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) {
                 (CMTime) -> Void in
                 
-                self.updateBackgroundStations()
+                self.timeSinceSync += 1
             }
         }
         
@@ -144,11 +160,16 @@ public class RadioPlaybackManager: NSObject {
         }
         hasBeenPaused = true
         
-        // Remove time observer so that background stations don't update when app is paused
         if let token = self.timeObserver
         {
             stations[stationIndices[currentStation]!].removeTimeObserver(token)
             self.timeObserver = nil
+        }
+        
+        // Update background stations if appropriate
+        if self.backgroundContinue
+        {
+            updateBackgroundStations()
         }
         
         NotificationCenter.default.post(name: .MPMusicPlayerControllerPlaybackStateDidChange, object: self)
@@ -173,16 +194,27 @@ public class RadioPlaybackManager: NSObject {
     func updateBackgroundStations() {
         for station in stationNames
         {
-            if (backgroundContinue == true) && (hasBeenPaused == false) && (station != currentStation)
+            if station != currentStation
             {
-                let currentTime = stations[stationIndices[station]!].currentTime().seconds
-                let duration = stations[stationIndices[station]!].currentItem?.duration.seconds
+                var tmp_timeSinceSync = self.timeSinceSync
                 
-                if duration! - currentTime < 3 {stations[stationIndices[station]!].advanceToNextItem()}
-                else {stations[stationIndices[station]!].seek(to: CMTime(seconds: currentTime + 2,
-                                                                         preferredTimescale: 1) )}
+                var timeLeftOnItem = (stations[stationIndices[station]!].currentItem?.duration.seconds)!
+                                        - stations[stationIndices[station]!].currentTime().seconds
+                
+                while tmp_timeSinceSync > timeLeftOnItem
+                {
+                    tmp_timeSinceSync -= timeLeftOnItem
+                    stations[stationIndices[station]!].advanceToNextItem()
+                    timeLeftOnItem = (stations[stationIndices[station]!].currentItem?.duration.seconds)!
+                    
+                }
+                if tmp_timeSinceSync > 0 && stations[stationIndices[station]!].status == .readyToPlay
+                {
+                    stations[stationIndices[station]!].seek(to: CMTimeMakeWithSeconds(stations[stationIndices[station]!].currentTime().seconds + timeSinceSync, 1))
+                }
             }
         }
+        self.timeSinceSync = 0
     }
     
     // So we can use media buttons on lock screen, command centre, headphones, Apple Watch etc.

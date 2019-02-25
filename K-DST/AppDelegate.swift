@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Choose the station as requested and start playing
-        RadioPlaybackManager.shared.chooseStation(for: station)
+        RadioPlaybackManager.shared.chooseStation(for: station, fromSiri: true)
         
         let response = INPlayMediaIntentResponse(code: .success, userActivity: nil)
         completionHandler(response)
